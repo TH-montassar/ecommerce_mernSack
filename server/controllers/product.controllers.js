@@ -85,6 +85,7 @@ const deleteProduct = async (req, res) => {
   }
 };
 
+
 module.exports.createProduct = createProduct;
 module.exports.updateProduct = updateProduct;
 

@@ -4,17 +4,10 @@ const {
   getProduct,
   getProducts,
   deleteProduct,
-  
 } = require("../controllers/product.controllers");
 
-
-
 const router = require("express").Router();
-const verifyToken =require("../middlewares/verifyToken")
-
-
-
-
+const verifyToken = require("../middlewares/verifyToken");
 
 router.post("/", verifyToken, createProduct);
 router.put("/:productId", verifyToken, updateProduct);

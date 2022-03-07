@@ -20,6 +20,7 @@ const addressRouter = require("./routes/address.routes");
 const orderRouter = require("./routes/order.routes");
 const cartRouter = require("./routes/cart.routes");
 const adminRouter = require("./auth/admin.routes");
+const reviewRouter = require("./routes/reviewProduct.routes");
 
 //middleware
 app.use(express.json());
@@ -27,12 +28,14 @@ app.use(express.urlencoded({ extended: true }));
 
 //routes middleware
 app.use("/api/products", productRoute);
+app.use("/review",reviewRouter)
 app.use("/api/categories", categoryRouter);
 app.use("/auth", authRouter);
 app.use("/admin",adminRouter)
 app.use("/api/addresses", addressRouter)
 app.use("/api/orders",orderRouter)
 app.use("/api/carts", cartRouter)
+
 
 //server listing
 

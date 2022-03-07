@@ -85,7 +85,7 @@ router.put("/:updateAdmin", verifyToken, isAdmin, async (req, res) => {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
-        password:hashedPassword
+       password:hashedPassword
       },
       { new: true }
     );
