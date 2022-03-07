@@ -1,0 +1,17 @@
+{
+  "name": "tech_store",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+   "server:dev":"cd server && npm run dev",
+   "client:dev":"cd client && npm start",
+   "start": "cd server && npm start",
+   "dev":"concurrently -n 'server,client' -c'green,blue' \"npm run server:dev\" \"npm run client:dev\""
+  },
+  "author": "montassar",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^7.0.0"
+  }
+}
