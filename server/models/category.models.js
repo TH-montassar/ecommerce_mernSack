@@ -16,8 +16,10 @@ CategorySchema.pre("validate", function (next) {
 });
 
 CategorySchema.methods.slugify = function () {
-  this.slug = slug(this.title) +"-"+ ((Math.random() * Math.pow(36,6)) | 0).toString(36);
-   
+  this.slug =
+    slug(this.title) +
+    "-" +
+    ((Math.random() * Math.pow(36, 6)) | 0).toString(36);
 };
 
 module.exports = mongoose.model("Category", CategorySchema);

@@ -14,7 +14,7 @@ const AdminSchema = new mongoose.Schema(
     password: { type: String },
 
     isAdmin: { type: Boolean, default: true },
-    // cart: { type: mongoose.Schema.Types.ObjectId, ref: "Cart" },
+     createdBy: { type: mongoose.Schema.Types.ObjectId,default:"defaultAdmin"},
   },
   { timestamps: true }
 );

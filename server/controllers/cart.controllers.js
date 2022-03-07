@@ -24,37 +24,37 @@ const emptyCart = async (req, res) => {
   }
 };
 
-const addItemToCart = async (req, res) =>  {
+const addItemToCart = async (req, res) => {
+
   const cartId = req.verifiedUser.cart;
+
+
   const item = {
     ...req.body.item,
     total: req.body.item.price * req.body.item.quantity,
   };
+  console.log(cartId)
 
   try {
     const cart = await Cart.findById(cartId);
 
-    
-
-
-//! problem not working
-    const itemIndex = cart.items.map(itemElement => itemElement.product.toString()).indexOf(item.product);
+    const itemIndex = cart.items
+      .map((itemElement) => itemElement.product.toString())
+      .indexOf(item.product);
     if (itemIndex !== -1) {
-        cart.items[itemIndex].quantity = cart.items[itemIndex].quantity + item.quantity;
-        cart.items[itemIndex].total = cart.items[itemIndex].quantity * cart.items[itemIndex].price;
+      cart.items[itemIndex].quantity =
+        cart.items[itemIndex].quantity + item.quantity;
+      cart.items[itemIndex].total =
+        cart.items[itemIndex].quantity * cart.items[itemIndex].price;
     } else {
-        cart.items.push(item);
+      cart.items.push(item);
     }
-    const savedCart = await cart.save();
+    const savedCart = await cart.save();      
     return res.status(201).json(savedCart);
   } catch (err) {
     return res.status(500).json(err);
   }
 };
-
-
-
-
 
 const removeItemFromCart = async (req, res) => {
   const cartId = req.verifiedUser.cart;

@@ -10,7 +10,7 @@ const createOrder = async (req, res) => {
     taxPercentage: cart.taxPercentage,
 
     address: req.verifiedUser.address,
-    client: req.verifiedUser._id
+    client: req.verifiedUser._id,
   });
 
   try {
@@ -29,18 +29,38 @@ const getOrder = async (req, res) => {
     return res.status(500).json(err);
   }
 };
+const getMYOrderByID = async (req, res) => {
+  const orderId = req.params.orderId;
 
-
-const meOrder = async (req, res) => {
-  const orderId=req.verifiedUser.order
   try {
-      const address = await Address.findById(orderId);
-      return res.status(200).json(address);
+    const order = await Order.findById(orderId);
+    currentUser = req.verifiedUser._id;
+    console.log(currentUser);
+    if (order.client!= currentUser) {
+      return res.status(401).json("you dent have any order with this id");
+    }
+
+    return res.status(200).json(order);
   } catch (err) {
-      return res.status(500).json(err);
+    return res.status(500).json(err);
   }
 };
 
+const meOrder = async (req, res) => {
+  const userId = req.verifiedUser._id;
+  try {
+    const order = await Order.find({ client: userId });
+    const orderLength = order.length;
+    if (orderLength === 0) {
+      return res.status(401).json("no order");
+    }
+    //!result mech mnadma
+    //return res.status(200).json(`find  ${orderLength}  order  ${order}`);
+    return res.status(200).json(order);
+  } catch (err) {
+    return res.status(500).json();
+  }
+};
 
 const getOrders = async (req, res) => {
   try {
@@ -51,11 +71,51 @@ const getOrders = async (req, res) => {
   }
 };
 
-//const deleteOrder = async (req, res) => {};
-//const updateOrder = async (req, res) => {};
+const canceled = async (req, res) => {
+  const OrderId = req.params.orderId;
+  try {
+    const canceledOrder = await Order.findByIdAndUpdate(
+      OrderId,
+      { status: "canceled" },
+      { new: true }
+    );
+    return res.status(200).json(canceledOrder);
+  } catch (err) {
+    return res.status(500).json(err);
+  }
+};
+const confirmed = async (req, res) => {
+  const orderId = req.params.orderId;
+  try {
+    const confirmed = await Order.findByIdAndUpdate(
+      orderId,
+      { status: "confirmed" },
+      { new: true }
+    );
+    return res.status(200).json(confirmed);
+  } catch (err) {
+    return res.status(500).json(err);
+  }
+};
+const fulfilled = async (req, res) => {
+  const orderId = req.params.OrderId;
+  try {
+    const fulfilledOrder = await Order.findByIdAndUpdate(
+      orderId,
+      { status: "fulfilled" },
+      { new: true }
+    );
+    return res.status(200).json(fulfilledOrder);
+  } catch (err) {
+    return res.status(500).json(err);
+  }
+};
+
 module.exports.createOrder = createOrder;
 module.exports.getOrder = getOrder;
 module.exports.getOrders = getOrders;
-
-//module.exports.deleteOrder = deleteOrder;
-//module.exports.updateOrder = updateOrder;
+module.exports.meOrder = meOrder;
+module.exports.canceled = canceled;
+module.exports.confirmed = confirmed;
+module.exports.fulfilled = fulfilled;
+module.exports.getMYOrderByID = getMYOrderByID;

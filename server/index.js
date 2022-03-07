@@ -19,6 +19,7 @@ const authRouter = require("./auth/auth.routes");
 const addressRouter = require("./routes/address.routes");
 const orderRouter = require("./routes/order.routes");
 const cartRouter = require("./routes/cart.routes");
+const adminRouter = require("./auth/admin.routes");
 
 //middleware
 app.use(express.json());
@@ -28,6 +29,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/products", productRoute);
 app.use("/api/categories", categoryRouter);
 app.use("/auth", authRouter);
+app.use("/admin",adminRouter)
 app.use("/api/addresses", addressRouter)
 app.use("/api/orders",orderRouter)
 app.use("/api/carts", cartRouter)

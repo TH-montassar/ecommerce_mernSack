@@ -15,6 +15,6 @@ router.get("/:addressId", verifyToken, getAddress);
 router.get("/", verifyToken, getAddresses);
 router.put("/:addressId", verifyToken, updateAddress);
 router.delete("/:addressId", verifyToken, deleteAddress);
-router.get("/me", verifyToken,meAddresses);
+
 
 module.exports = router;

@@ -19,16 +19,16 @@ router.post("/register", async (req, res) => {
       street: req.body.street,
       city: req.body.city,
       country: req.body.country,
-      zipCode: req.body.zipCode
+      zipCode: req.body.zipCode,
     });
     const savedAddress = await newAddress.save();
-   // console.log(savedAddress)
+    // console.log(savedAddress)
 
     const salt = await bcrypt.genSalt(16);
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
-    //! creation cart 
+    //! creation cart
     const newCart = new Cart();
-    const savedCard= await newCart.save();
+    const savedCard = await newCart.save();
     //!------
     const newUser = new User({
       firstName: req.body.firstName,
@@ -36,7 +36,7 @@ router.post("/register", async (req, res) => {
       email: req.body.email,
       password: hashedPassword,
       address: savedAddress._id,
-      cart:savedCard._id
+      cart: savedCard._id,
     });
 
     const savedUser = await newUser.save();
@@ -74,9 +74,10 @@ router.post("/login", async (req, res) => {
         _id: user._id,
         email: user.email,
         name: user.firstName,
-        cart:user.cart,
-        address:user.address
-        /*firstName:user.firstName}*/,
+        cart: user.cart,
+        address: user.address,
+        isAdmin: user.isAdmin,
+        /*firstName:user.firstName}*/
       },
       process.env.TOKEN_KEY,
       { expiresIn: "3 days" }
@@ -85,7 +86,7 @@ router.post("/login", async (req, res) => {
 
     return res.status(200).json({ user: user, token: token });
   } catch (err) {
-    return res.status(500).json(err)
+    return res.status(500).json(err);
   }
 });
 
