@@ -1,0 +1,5 @@
+export const ADD_TO_CART="ADD_TO_CART"
+export const  EMPLTY_CART="EMPLTY_CART"
+export const GET_PRODUCT="GET_PRODUCT"
+export const LOGIN="LOGIN"
+export const REGISTER="REGISTER"
