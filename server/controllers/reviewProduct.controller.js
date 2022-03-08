@@ -15,7 +15,7 @@ const addReview = async (req, res) => {
   try {
     const newReview = new Review({
       user: req.verifiedUser._id,
-      productId: productId,
+      product: productId,
       review: req.body.review
     });
     const savedReview = await newReview.save();

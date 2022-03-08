@@ -1,10 +1,26 @@
 module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   presets: [],
   darkMode: "media", // or 'class'
   theme: {
+    // minWidth: {
+    //   '10.284': '10.284 rem'
+    // },
+    // minHeight: {
+    //   '3.874': '3.874 rem'
+    // },
+
+
+    extend: {
+      colors: {
+        Primary: "#070645",
+        Info:'#008C91',
+        infoDark:'#014A4D',
+        whiteDark:'D6D6D6',
+        
+      },
+    },
+
     screens: {
       sm: "640px",
       md: "768px",
