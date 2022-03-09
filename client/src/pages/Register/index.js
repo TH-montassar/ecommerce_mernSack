@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-import imgMONT from "../../assert/image/p.png";
+import { useDispatch } from "react-redux";
+import { login, register } from "../../actions/auth.action";
+
 const Register = () => {
+  const dispatch = useDispatch();
   const [Form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -17,24 +20,27 @@ const Register = () => {
     e.preventDefault(); //man5alouch navigateur ya3mel relode
     //!more exp
     setForm({ ...Form, [e.target.name]: e.target.value });
-    console.log(Form)
+    console.log(Form);
+  };
+  const onSubmitForm = (e) => {
+    e.preventDefault();
+    dispatch(register(Form));
   };
   return (
     <section className="pt-8  max-w-1xl flex   flex-col justify-between  gap-16 pb-16 ">
       {/* sm??  sm:space-y-5*  sm:pt-9*/}
-     <div className="text-center">
-     <h1 className="text-5xl pb-16 font-bold	">Register</h1>
-      <div className="text-base font-normal">
-        <h2>Manage all your Monta_product</h2>
-        <p>
-          let,s get you all set up so you can verify your personal account and
-          begin setting up your porfile
-        </p>
+      <div className="text-center">
+        <h1 className="text-5xl pb-16 font-bold	">Register</h1>
+        <div className="text-base font-normal">
+          <h2>Manage all your Monta_product</h2>
+          <p>
+            let,s get you all set up so you can verify your personal account and
+            begin setting up your porfile
+          </p>
+        </div>
       </div>
-
-     </div>
       <div className=" p-5 rounded-2xl shadow-2xl">
-        <form action="" method="post">
+        <form onSubmit={(e) => onSubmitForm(e)} action="" method="post">
           <div className="flex justify-between gap-2 ">
             <div className=" w-1/2">
               <label htmlFor="firstName">firstName *</label>
@@ -55,7 +61,7 @@ const Register = () => {
               <label htmlFor="lastName">lastName</label>
               <div>
                 <input
-                 onChange={(e) => onInputChange(e)}
+                  onChange={(e) => onInputChange(e)}
                   className="w-full rounded-xl py-2 px-3 outline-none border focus:border-Primary"
                   type="text"
                   name="lastName"
@@ -71,7 +77,7 @@ const Register = () => {
               <label htmlFor="LabPassword">password *</label>
               <div>
                 <input
-                 onChange={(e) => onInputChange(e)}
+                  onChange={(e) => onInputChange(e)}
                   className="w-full rounded-xl py-2 px-3 outline-none border focus:border-Primary"
                   type="password"
                   name="password"
@@ -86,7 +92,7 @@ const Register = () => {
               <label htmlFor="confirmPassword">confirm Password *</label>
               <div>
                 <input
-                 onChange={(e) => onInputChange(e)}
+                  onChange={(e) => onInputChange(e)}
                   className="w-full rounded-xl py-2 px-3 outline-none border focus:border-Primary"
                   type="password"
                   name="password"
@@ -102,7 +108,7 @@ const Register = () => {
               <label htmlFor="number">Number</label>
               <div>
                 <input
-                 onChange={(e) => onInputChange(e)}
+                  onChange={(e) => onInputChange(e)}
                   className="w-full rounded-xl py-2 px-3 outline-none border focus:border-Primary"
                   type="number"
                   name="number"
@@ -115,7 +121,7 @@ const Register = () => {
               <label htmlFor="email">email *</label>
               <div>
                 <input
-                 onChange={(e) => onInputChange(e)}
+                  onChange={(e) => onInputChange(e)}
                   className="w-full rounded-xl py-2 px-3 outline-none border focus:border-Primary"
                   type="email"
                   name="email"
@@ -135,7 +141,7 @@ const Register = () => {
               <label htmlFor="city">City</label>
               <div>
                 <input
-                 onChange={(e) => onInputChange(e)}
+                  onChange={(e) => onInputChange(e)}
                   className="w-full rounded-xl py-2 px-3 outline-none border focus:border-Primary"
                   type="text"
                   name="city"
@@ -149,7 +155,7 @@ const Register = () => {
               <label htmlFor="country">Country</label>
               <div>
                 <input
-                 onChange={(e) => onInputChange(e)}
+                  onChange={(e) => onInputChange(e)}
                   className="w-full rounded-xl py-2 px-3 outline-none border focus:border-Primary"
                   type="text"
                   name="country"
@@ -165,7 +171,7 @@ const Register = () => {
               <label htmlFor="LabStreet">street</label>
               <div>
                 <input
-                 onChange={(e) => onInputChange(e)}
+                  onChange={(e) => onInputChange(e)}
                   className="w-full rounded-xl py-2 px-3 outline-none border focus:border-Primary"
                   type="text"
                   name="street"
@@ -178,9 +184,9 @@ const Register = () => {
               <label htmlFor="zipCode">zipCode</label>
               <div>
                 <input
-                 onChange={(e) => onInputChange(e)}
+                  onChange={(e) => onInputChange(e)}
                   className="w-full rounded-xl py-2 px-3 outline-none border focus:border-Primary"
-                  type="email"
+                  type="number"
                   name="zipCode"
                   id="zipCode"
                   placeholder="zipCode"
@@ -189,8 +195,11 @@ const Register = () => {
             </div>
           </div>
           <div className="pt-5 flex justify-center">
-            <button type="submit" className="px-40 bg-Info hover:bg-infoDark text-white font-bold py-2 px-4 rounded-full ">
-            Register
+            <button
+              type="submit"
+              className="px-40 bg-Info hover:bg-infoDark text-white font-bold py-2 px-4 rounded-full "
+            >
+              Register
             </button>
           </div>
         </form>

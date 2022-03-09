@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { login } from "../../actions/auth.action";
 
 const Login = () => {
+  const dispatch = useDispatch();
   const [Form, setForm] = useState({
     email: "",
     password: "",
@@ -13,6 +16,10 @@ const Login = () => {
     setForm({ ...Form, [e.target.name]: e.target.value });
     console.log(Form);
   };
+  const OnSubmitForm = (e) => {
+    e.preventDefault();
+    dispatch(login(Form));
+  };
   return (
     <section className="pt-8  max-w-1xl flex   flex-col   gap-10 pb-16 ">
       {/* sm??  sm:space-y-5*  sm:pt-9*/}
@@ -20,7 +27,7 @@ const Login = () => {
         <h1 className="text-5xl pb-16 font-bold	 ">Login</h1>
       </div>
       <div className=" p-5 rounded-2xl shadow-2xl max-w-max  container mx-auto">
-        <form action="" method="post">
+        <form onSubmit={(e) => OnSubmitForm(e)} action="" method="post">
           <div className="flex  flex-col relative pb-5">
             <label className="text-center text-2xl " htmlFor="email">
               Email *

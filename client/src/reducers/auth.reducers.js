@@ -23,7 +23,7 @@ const AuthReducers = (state = initialState, action) => {
     case REGISTER:
       return {
         ...state,
-        user: payload.user,
+        user: payload,
       };
     case AUTH_ERROR:
       localStorage.removeItem("token");
@@ -35,9 +35,8 @@ const AuthReducers = (state = initialState, action) => {
       };
 
     default:
-    return{
-      state,
-    }  
+    return  state;
+    
     
   }
 };
