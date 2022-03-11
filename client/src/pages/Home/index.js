@@ -1,114 +1,176 @@
-import React from "react";
+import React, { useEffect } from "react";
+import car from "../../assert/image/v.jpg";
+import Return from "../../assert/image/re.svg";
+import ReturnRv from "../../assert/image/rev.svg";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts } from "../../actions/product.action";
+import vdAbout from "../../assert/image/vd/cars.mp4";
+import ReactPlayer from "react-player";
+import favorite from "../../assert/image/fover.svg";
 
 const Home = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getProducts());
+  }, []);
+
+  const { isLoading, products } = useSelector((state) => {
+    return state.productReducers;
+  });
+
   return (
-    <div className="">
-    <i className="fa-thin fa-alarm-clock"></i>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum tenetur
-      vel accusamus autem, quia doloribus sequi ad possimus exercitationem quos?
-      Eligendi ratione rem fugiat laborum impedit dicta molestias, commodi
-      praesentium ex voluptate, id molestiae facilis qui illo dolorum, sapiente
-      possimus quidem cum nulla minus nihil officiis suscipit. Iure ipsa unde
-      illo libero debitis explicabo natus nesciunt pariatur neque aliquid,
-      officia facilis eligendi quisquam quos eos ullam amet labore numquam
-      inventore laudantium. Optio non et quae aliquam assumenda excepturi
-      adipisci temporibus commodi reprehenderit natus. Perferendis eveniet illum
-      temporibus, earum velit nobis. Nihil aliquid eos quaerat a, corrupti enim
-      placeat perferendis dicta, doloribus ut cumque nulla nisi, molestias
-      pariatur architecto totam deleniti ex dolorem tempore dignissimos fugit
-      eum molestiae nesciunt reprehenderit. Labore aliquam voluptatibus id
-      excepturi magnam ad odit iusto dolorum quo consequatur sed aut corporis,
-      consequuntur dolorem sunt perferendis non molestias, placeat tempora
-      impedit quam. Itaque, unde illum aliquam quidem qui commodi porro dicta
-      nemo expedita nobis quae quibusdam soluta nisi veritatis eligendi illo.
-      Aut earum, consequatur atque, ad quis doloribus necessitatibus voluptate
-      aliquid provident neque, odit amet reprehenderit! Omnis asperiores sint
-      dignissimos? Incidunt amet iusto distinctio quas ea aut fuga doloribus cum
-      voluptate. Voluptatum recusandae autem dolores eligendi quaerat sit
-      distinctio! Magni minus laborum iusto asperiores fugiat suscipit adipisci
-      velit ex temporibus sit maxime ab aut iure aliquid qui sequi ullam
-      architecto illo placeat iste, porro quaerat. Ipsa mollitia architecto
-      officia, consectetur perspiciatis nam repellendus laboriosam rerum
-      voluptatem eum similique tempore voluptate illum at soluta molestias
-      debitis odit esse magnam eius ipsum error voluptatum. Voluptate odio
-      molestias reiciendis dignissimos odit et, minima optio recusandae debitis
-      doloribus architecto blanditiis iure. Odio vero reprehenderit repellat, ab
-      magni at incidunt corporis animi et iusto autem accusantium quod, debitis
-      fugit. Necessitatibus earum beatae possimus omnis laudantium ut mollitia,
-      quasi maxime odio porro ipsam nam sunt nesciunt veniam aliquid suscipit
-      officiis dicta culpa. Ullam cum quibusdam laborum sunt ut rerum sed neque
-      eligendi animi vel nam, explicabo ducimus quo. Esse porro exercitationem
-      optio. Magnam, aspernatur quibusdam. Cumque sunt delectus, similique
-      aliquam repudiandae adipisci iste veritatis laborum sint totam, tenetur
-      hic ipsa porro voluptatibus soluta officiis quas, numquam ullam eligendi
-      iusto dolore dicta quae? Error facere necessitatibus eum quod nisi
-      recusandae asperiores odit ratione? Beatae laborum, facere eius corporis
-      id est doloremque nostrum corrupti sed dignissimos laudantium autem
-      doloribus sequi a voluptatem minima dolore inventore! Officia placeat fuga
-      sint error minus, eligendi debitis aperiam dicta officiis rerum deserunt
-      quas. Dolorem, sed praesentium ipsam ab excepturi maiores animi incidunt
-      repudiandae accusamus harum dolorum sint explicabo reprehenderit nam nihil
-      aspernatur ratione est nobis, quae iure. Hic temporibus excepturi ipsa
-      minus maiores quod ab dolorem, soluta mollitia fugiat nulla incidunt, ea
-      accusantium veritatis sint velit dolorum reprehenderit. Illo atque nostrum
-      rem aut est perferendis, itaque ipsum nam consectetur, exercitationem,
-      architecto similique? Modi laborum nisi non quibusdam reprehenderit
-      molestias animi nulla odio voluptate suscipit. Unde exercitationem,
-      quisquam officiis sunt sequi dolore ad in omnis repellendus non vitae
-      aspernatur optio laborum maiores ab eius aut, asperiores iure. Magnam
-      quaerat qui iste, tempora possimus corrupti quisquam mollitia voluptas
-      amet distinctio animi blanditiis sequi pariatur deleniti eligendi id
-      beatae autem! Eos in et placeat dolore non ipsum omnis impedit dolorum,
-      qui cum labore ex quas ab vel, eius ratione maiores, eum sequi suscipit
-      nobis laborum. Assumenda quasi quam doloremque neque natus quibusdam vero
-      exercitationem repellat ducimus quod suscipit, doloribus nihil nemo
-      eveniet consequuntur perspiciatis corrupti commodi dolores adipisci
-      laborum iste vitae reiciendis ratione? Accusantium ut voluptates ipsam
-      quia? Minima fugit illo debitis. Aliquid ab voluptatum beatae facere totam
-      non tempora, quas quia impedit error, velit aliquam! Ducimus commodi ab
-      dolorum aliquam! Odio cum voluptate pariatur, quam impedit est et! Ea
-      architecto in quidem dolor impedit deleniti exercitationem provident a
-      nesciunt minus, nemo veritatis iusto obcaecati non id nisi! Officiis
-      asperiores minima placeat incidunt rem odit. Eveniet sit libero, aperiam
-      omnis voluptate ducimus veniam dicta cumque fuga ullam architecto maxime
-      in praesentium pariatur obcaecati quae non modi. Ducimus veniam
-      temporibus, earum voluptates vero fugiat sapiente ut eligendi nemo nulla,
-      nesciunt placeat incidunt magnam nam maiores nostrum accusantium maxime
-      voluptatibus, quo consequatur autem molestiae commodi id? Rerum provident
-      iure libero fugiat beatae cumque eligendi perferendis eveniet officia
-      maxime dolores cum fugit saepe officiis doloremque ex, tempore dolorum!
-      Voluptatem atque molestias non illum impedit fuga dolore nobis, autem,
-      culpa est minima quaerat dolor dolorem sequi voluptates labore, nesciunt
-      officiis ab. Hic dicta quidem facilis iusto, eos quos, minus blanditiis
-      dolorum ipsa ut animi nobis tempore accusamus! Et asperiores nobis quos
-      fugiat porro quae reiciendis beatae officia nesciunt ipsam veritatis
-      quibusdam assumenda, exercitationem eveniet. Voluptates, libero nesciunt
-      sed adipisci quo dolorum, sequi eaque eius laudantium obcaecati saepe
-      consectetur maxime error eum? Consequuntur, esse! Voluptas, reprehenderit
-      aut a unde minus ab culpa asperiores? Distinctio odio ex, nihil in
-      eligendi ea repellat, qui consectetur sunt labore laboriosam error
-      perspiciatis omnis totam fugiat voluptatum quibusdam nesciunt harum nam
-      deserunt voluptates iste! Ullam maiores maxime incidunt veritatis alias
-      assumenda distinctio saepe quidem in tenetur inventore consequuntur, iure
-      corrupti aut modi porro facilis blanditiis veniam beatae rerum. Aliquam
-      veniam veritatis tempora nesciunt dignissimos eum reprehenderit a, vitae
-      ut minus voluptate quibusdam aut, nam nihil consequuntur inventore non
-      sapiente iste magnam. Dolor, provident natus. Praesentium, eum ab beatae
-      fugiat rerum delectus alias possimus ad dolore dignissimos enim error
-      tempora culpa ut dolor a eaque quasi. Consequuntur sit tempore tempora
-      praesentium. Hic quidem beatae alias itaque quo. Ab odit quod obcaecati
-      provident. Reprehenderit doloribus praesentium maiores. Quae excepturi
-      nemo eaque enim ad culpa neque quo? Quam, distinctio debitis voluptas quod
-      repellendus neque alias quisquam eligendi eos, esse fuga sequi non vitae
-      expedita nam unde veritatis blanditiis maiores officiis nihil molestiae
-      illo aspernatur! Maiores eveniet, iure qui laudantium repellat beatae
-      saepe cumque facere placeat molestias quo neque doloribus hic, non totam
-      repellendus. Neque fuga ad, illo vitae saepe quia accusantium corporis
-      natus eaque earum ipsa nostrum maxime sit dignissimos odit sed minima
-      sapiente error culpa possimus sint! Nisi quibusdam, veritatis voluptatum
-      vel totam, asperiores ipsa impedit voluptatem rerum non maxime. Adipisci
-      asperiores in id possimus? home
-    </div>
+    <section className="pt-11">
+      {/* -------------------------------------------------- */}
+      <div className="flex justify-center rounded-2xl relative">
+        <img
+          src={Return}
+          alt="Return"
+          className="absolute z-10 left-2 top-[calc(50%-35px)]"
+        />
+        <div className="max-h-96 flex justify-center items-center">
+          <div className="bg-Primary text-white h-full  rounded-l-2xl p-9 relative w-2/5 pl-24">
+            <h1 className="text-center pb-3.5 font-bold text-5xl">hyundai</h1>
+            <p className="">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
+              corrupti nisi nostrum voluptate, eaque ab pariatur nobis! Quasi
+              possimus est odit natus molestias magni quibusdam repellat error
+              unde, iste asperiores. Eius fuga animi quisquam veritatis minus
+              eos aperiam ad voluptatum reiciendis. Facilis, laborum doloremque?
+              Sequi nesciunt velit quisquam magni
+            </p>
+          </div>
+
+          <img
+            className="object-cover w-3/5 h-full rounded-r-2xl"
+            src={car}
+            alt="car"
+          />
+        </div>
+
+        <img
+          src={ReturnRv}
+          alt="Return"
+          className="absolute z-10 right-2 top-[calc(50%-35px)]"
+        />
+      </div>
+
+      <div className="py-10">
+        <h1 className="text-center font-bold text-3xl ">Shop products</h1>
+        {/* ------------------------------------------- */}
+        <div className="mt-10">
+          <h2 className="pb-12 text-3xl">Newest Products</h2>
+
+          <div className="flex flex-1 gap-12 overflow-x-auto snap-x	snap-mandatory pt-4 pl-10 pb-10">
+            {products.map((product) => (
+              <div
+                key={product._id}
+                className="h-96 min-w-[20rem] relative shadow-2xl rounded-2xl border hover:border-black snap-center"
+              >
+                <img src={favorite} alt="like" className="absolute " />
+                <Link to="/details">
+                  <img
+                    className="rounded-t-2xl h-1/2 ease-in-out w-full object-contain"
+                    src={product.image}
+                    alt={product.slug}
+                  />
+                </Link>
+                <div className="flex flex-col h-1/2 gap-2 w-full justify-center items-center px-4 pb-2">
+                  <h1 className="text-lg font-medium  text-center truncate w-72 mx-auto ">
+                    {product.title}
+                  </h1>
+
+                  <div className="text-lg font-medium ">
+                    {product.price} TND
+                  </div>
+                  <Link
+                    to="/register"
+                    className="bg-Info   mt-auto hover:bg-infoDark text-white font-bold py-2 px-4 rounded-full"
+                  >
+                    add to Cart
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* //*------------------------------------------ */}
+        <div className="mt-10">
+          <h2 className="pb-12 text-3xl">Best selling Product</h2>
+         
+
+
+          <div className="flex flex-1 gap-12 overflow-x-auto snap-x	snap-mandatory pt-4 pl-10 pb-10">
+            {products.map((product) => (
+              <div
+                key={product._id}
+                className="h-96 min-w-[20rem] relative shadow-2xl rounded-2xl border hover:border-black snap-center"
+              >
+                <img src={favorite} alt="like" className="absolute " />
+                <Link to="/details">
+                  <img
+                    className="rounded-t-2xl h-1/2 ease-in-out w-full object-contain"
+                    src={product.image}
+                    alt={product.slug}
+                  />
+                </Link>
+                <div className="flex flex-col h-1/2 gap-2 w-full justify-center items-center px-4 pb-2">
+                  <h1 className="text-lg font-medium  text-center truncate w-72 mx-auto ">
+                    {product.title}
+                  </h1>
+
+                  <div className="text-lg font-medium ">
+                    {product.price} TND
+                  </div>
+                  <Link
+                    to="/register"
+                    className="bg-Info   mt-auto hover:bg-infoDark text-white font-bold py-2 px-4 rounded-full"
+                  >
+                    add to Cart
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+
+
+
+
+
+
+        </div>
+        {/* ---------------------------------- */}
+      </div>
+      <div className="">
+        <h2 className="pb-12 text-3xl">About us</h2>
+        <div className="flex gap-20 items-center pb-10 pl-10 flex-wrap ">
+          <ReactPlayer
+            className="react-player fixed-bottom max-w-lg"
+            url={vdAbout}
+            controls={true}
+          />
+
+          <div className="max-w-xl">
+            <h1 className="pb-10 text-xl	 font-semibold	"> about us</h1>
+            <p>
+              ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus,
+              maxime delectus. Officia porro maxime perferendis hic dolorum. Ut
+              facilis quasi iure recusandae ducimus ipsum reiciendis velit
+              minima ipsa. Nihil voluptas blanditiis dolores quos, voluptates
+              voluptatem ab eaque, molestiae, consectetur sit laudantium
+              exercitationem! Consequuntur soluta, odio doloremque voluptatem
+              eligendi dolor. Eveniet fugiat dolorem, impedit hic odit vero illo
+              vitae optio ab veritatis. In illum, quae obcaecati autem natus
+              temporibus ratione ullam repellendus blanditiis dolorum
+              exercitationem modi fugit quos tempore aut fugiat facere quisquam
+              a! At, provident atque? Exercitationem repellat itaque, vero
+              corrupti iure quasi iste, pariatur facere, tempora cupiditate
+              maiores dolor.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

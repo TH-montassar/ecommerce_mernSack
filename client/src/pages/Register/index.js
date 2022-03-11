@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { login, register } from "../../actions/auth.action";
+import {register } from "../../actions/auth.action";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -14,6 +14,7 @@ const Register = () => {
     country: "",
     city: "",
     number: "",
+    confirmPassword: "",
   });
   //* fonction te5o mel input wo t5abi fi sate
   const onInputChange = (e) => {
@@ -25,6 +26,19 @@ const Register = () => {
   const onSubmitForm = (e) => {
     e.preventDefault();
     dispatch(register(Form));
+    setForm({
+      ...Form,
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      street: "",
+      zipCode: "",
+      country: "",
+      city: "",
+      number: "",
+      confirmPassword: "",
+    });
   };
   return (
     <section className="pt-8  max-w-1xl flex   flex-col justify-between  gap-16 pb-16 ">
@@ -34,19 +48,20 @@ const Register = () => {
         <div className="text-base font-normal">
           <h2>Manage all your Monta_product</h2>
           <p>
-            let,s get you all set up so you can verify your personal account and
-            begin setting up your porfile
+            let,s get you all set up so you ctttttn verify your personal account
+            and begin setting up your porfile
           </p>
         </div>
       </div>
       <div className=" p-5 rounded-2xl shadow-2xl">
-        <form onSubmit={(e) => onSubmitForm(e)} action="" method="post">
+        <form onSubmit={(e) => onSubmitForm(e)}>
           <div className="flex justify-between gap-2 ">
             <div className=" w-1/2">
               <label htmlFor="firstName">firstName *</label>
               <div>
                 <input
                   onChange={(e) => onInputChange(e)}
+                  value={Form.firstName}
                   className="w-full rounded-xl py-2 px-3 outline-none border focus:border-Primary"
                   type="text"
                   name="firstName"
@@ -62,6 +77,7 @@ const Register = () => {
               <div>
                 <input
                   onChange={(e) => onInputChange(e)}
+                  value={Form.lastName}
                   className="w-full rounded-xl py-2 px-3 outline-none border focus:border-Primary"
                   type="text"
                   name="lastName"
@@ -78,6 +94,7 @@ const Register = () => {
               <div>
                 <input
                   onChange={(e) => onInputChange(e)}
+                  value={Form.password}
                   className="w-full rounded-xl py-2 px-3 outline-none border focus:border-Primary"
                   type="password"
                   name="password"
@@ -93,6 +110,7 @@ const Register = () => {
               <div>
                 <input
                   onChange={(e) => onInputChange(e)}
+                  value={Form.confirmPassword}
                   className="w-full rounded-xl py-2 px-3 outline-none border focus:border-Primary"
                   type="password"
                   name="password"
@@ -109,6 +127,7 @@ const Register = () => {
               <div>
                 <input
                   onChange={(e) => onInputChange(e)}
+                  value={Form.number}
                   className="w-full rounded-xl py-2 px-3 outline-none border focus:border-Primary"
                   type="number"
                   name="number"
@@ -122,6 +141,7 @@ const Register = () => {
               <div>
                 <input
                   onChange={(e) => onInputChange(e)}
+                  value={Form.email}
                   className="w-full rounded-xl py-2 px-3 outline-none border focus:border-Primary"
                   type="email"
                   name="email"
@@ -142,6 +162,7 @@ const Register = () => {
               <div>
                 <input
                   onChange={(e) => onInputChange(e)}
+                  value={Form.city}
                   className="w-full rounded-xl py-2 px-3 outline-none border focus:border-Primary"
                   type="text"
                   name="city"
@@ -156,6 +177,7 @@ const Register = () => {
               <div>
                 <input
                   onChange={(e) => onInputChange(e)}
+                  value={Form.country}
                   className="w-full rounded-xl py-2 px-3 outline-none border focus:border-Primary"
                   type="text"
                   name="country"
@@ -172,6 +194,7 @@ const Register = () => {
               <div>
                 <input
                   onChange={(e) => onInputChange(e)}
+                  value={Form.street}
                   className="w-full rounded-xl py-2 px-3 outline-none border focus:border-Primary"
                   type="text"
                   name="street"
@@ -185,6 +208,7 @@ const Register = () => {
               <div>
                 <input
                   onChange={(e) => onInputChange(e)}
+                  value={Form.zipCode}
                   className="w-full rounded-xl py-2 px-3 outline-none border focus:border-Primary"
                   type="number"
                   name="zipCode"

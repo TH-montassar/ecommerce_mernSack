@@ -31,7 +31,7 @@ const AuthReducers = (state = initialState, action) => {
         uisAuthenticated: true,
         user: null,
         token: null,
-        error: payload.error,
+        error: payload,
       };
 
     default:

@@ -1,10 +1,14 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { login } from "../../actions/auth.action";
 
 const Login = () => {
   const dispatch = useDispatch();
+
+  const { isLoading } = useSelector((state) => {
+    return state.authReducers;
+  });
   const [Form, setForm] = useState({
     email: "",
     password: "",
@@ -19,8 +23,15 @@ const Login = () => {
   const OnSubmitForm = (e) => {
     e.preventDefault();
     dispatch(login(Form));
+    setForm({
+      email: "",
+      password: "",
+    });
   };
-  return (
+  //!is loading not work
+  return isLoading ? (
+    <div> wait a moment</div>
+  ) : (
     <section className="pt-8  max-w-1xl flex   flex-col   gap-10 pb-16 ">
       {/* sm??  sm:space-y-5*  sm:pt-9*/}
       <div className="text-center">

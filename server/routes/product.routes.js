@@ -13,7 +13,7 @@ router.post("/", verifyToken, createProduct);
 router.put("/:productId", verifyToken, updateProduct);
 router.get("/:productSlug", getProduct);
 
-router.get("/", verifyToken, getProducts);
+router.get("/", getProducts);
 router.delete("/:productId", verifyToken, deleteProduct);
 
 module.exports = router;

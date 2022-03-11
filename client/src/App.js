@@ -8,23 +8,29 @@ import Footer from "./shared/Footer";
 import Search from "./pages/search";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Details from "./pages/Details";
+
+
+
 const App = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
         <div className="min-h-screen  h-full">
           <Header />
-          <div className="mt-[80px]">
-         
-           <div className="container max-w-[73rem] mx-auto">
-           <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/search" element={<Search />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-            </Routes>
-           </div>
-            <Footer />
+          <div className="mt-20">
+            <div className="container mx-auto px-6">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/search" element={<Search />} />
+                <Route path="/login" element={<Login />} />
+
+                <Route path="/register" element={<Register />} />
+                <Route path="/details/:slug" element={<Details/>} />
+                
+              </Routes>
+            </div>
+            <Footer/>
           </div>
         </div>
       </BrowserRouter>

@@ -1,5 +1,4 @@
-
-import { ADD_PRODUCT, GET_PRODUCT } from "../constants/action";
+import { ADD_PRODUCT, GET_PRODUCT, PRODUCT_ERROR } from "../constants/action";
 
 const initialState = {
   products: [],
@@ -18,6 +17,14 @@ const ProductReducers = (state = initialState, action) => {
       };
     case ADD_PRODUCT:
       return;
+    case PRODUCT_ERROR:
+      return { 
+        isLoading: false,
+        products: [],
+        product: null,
+        ...state,
+        error:payload,
+      };
 
     default:
       return state;
