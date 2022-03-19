@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { getProducts } from "../../actions/product.action";
 
-import favorite from "../../assert/image/fover.svg";
+import favorite from "../../assert/image/favorite.svg";
 import car from "../../assert/image/v.jpg";
 
 const Search = () => {

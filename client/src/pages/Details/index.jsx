@@ -5,7 +5,7 @@ import car from "../../assert/image/v.jpg";
 import profile1 from "../../assert/image/p1.jpg";
 import profile2 from "../../assert/image/p2.jpg";
 import profile3 from "../../assert/image/p3.jpg";
-import favorite from "../../assert/image/fover.svg";
+import favorite from "../../assert/image/favorite.svg";
 import { getProduct } from "../../actions/product.action";
 import { useDispatch, useSelector } from "react-redux";
 const Details = () => {
@@ -180,9 +180,8 @@ const Details = () => {
                 <p className="font-semibold pl-"> {product?.category?.title}</p>
                 <div className="text-lg font-semibold pb-2"> Added date</div>
                 <p className="font-semibold pl-"> {product?.createdAt}</p>
-                <div >
-                  
-                <div className="text-lg font-semibold pb-2" > Promotion</div> 
+                <div>
+                  <div className="text-lg font-semibold pb-2"> Promotion</div>
                   {product?.isPromotion ? (
                     <div> is on promtion</div>
                   ) : (

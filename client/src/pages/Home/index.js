@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../actions/product.action";
 import vdAbout from "../../assert/image/vd/cars.mp4";
 import ReactPlayer from "react-player";
-import favorite from "../../assert/image/fover.svg";
+import favorite from "../../assert/image/favorite.svg";
 import car from "../../assert/image/v.jpg";
 
 const Home = () => {

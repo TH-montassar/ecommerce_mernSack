@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import favorite from "../../assert/image/fover.svg";
+import favorite from "../../assert/image/favorite.svg";
 import car from "../../assert/image/v.jpg";
 
 const Cart = () => {
@@ -177,7 +177,10 @@ const Cart = () => {
 
               {/* --------------------------------------------- */}
 
-              <button type="submit" className="bg-Info  mb-2 flex mx-auto	hover:bg-infoDark text-white font-bold py-3 px-10 rounded-md text-xs">
+              <button
+                type="submit"
+                className="bg-Info  mb-2 flex mx-auto	hover:bg-infoDark text-white font-bold py-3 px-10 rounded-md text-xs"
+              >
                 Checkout
               </button>
             </form>
