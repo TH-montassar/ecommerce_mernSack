@@ -223,7 +223,7 @@ const Register = () => {
           <div className="pt-5 flex justify-center">
             <button
               type="submit"
-              className="px-40 bg-Info hover:bg-infoDark text-white font-bold py-2 px-4 rounded-full "
+              className="px-40 bg-Info hover:bg-infoDark text-white font-bold py-2 rounded-full "
             >
               Register
             </button>
