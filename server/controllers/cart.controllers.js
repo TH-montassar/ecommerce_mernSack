@@ -25,15 +25,13 @@ const emptyCart = async (req, res) => {
 };
 
 const addItemToCart = async (req, res) => {
-
   const cartId = req.verifiedUser.cart;
-
 
   const item = {
     ...req.body.item,
     total: req.body.item.price * req.body.item.quantity,
   };
-  console.log(cartId)
+  console.log(cartId);
 
   try {
     const cart = await Cart.findById(cartId);
@@ -49,7 +47,7 @@ const addItemToCart = async (req, res) => {
     } else {
       cart.items.push(item);
     }
-    const savedCart = await cart.save();      
+    const savedCart = await cart.save();
     return res.status(201).json(savedCart);
   } catch (err) {
     return res.status(500).json(err);

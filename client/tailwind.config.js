@@ -10,16 +10,20 @@ module.exports = {
     //   '3.874': '3.874 rem'
     // },
 
-
     extend: {
+      boxShadow: {
+        webkit_box_shadow: " 3px 9px 16px 2px rgba(153,148,153,1)",
+        moz_box_shadow: "3px 9px 16px 2px rgba(153,148,153,1)",
+        box_shadow: "3px 9px 16px 2px rgba(153,148,153,1)",
+      },
       colors: {
         Primary: "#070645",
         Success: "#189122",
-        Warning:"#C19801",
-        Info:'#008C91',
-        infoDark:'#014A4D',
-        whiteDark:'D6D6D6',
-        
+        Warning: "#C19801",
+        Danger:"#931D21",
+        Info: "#008C91",
+        infoDark: "#014A4D",
+        whiteDark: "D6D6D6",
       },
     },
 

@@ -26,6 +26,8 @@ const Register = () => {
   const onSubmitForm = (e) => {
     e.preventDefault();
     dispatch(register(Form));
+
+    //ba3ed maykamel yraja formul fer8a
     setForm({
       ...Form,
       firstName: "",
@@ -51,7 +53,7 @@ const Register = () => {
             let,s get you all set up so you ctttttn verify your personal account
             and begin setting up your porfile
           </p>
-        </div>
+        </div> 
       </div>
       <div className=" p-5 rounded-2xl shadow-2xl">
         <form onSubmit={(e) => onSubmitForm(e)}>

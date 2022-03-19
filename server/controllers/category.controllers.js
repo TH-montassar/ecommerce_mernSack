@@ -4,6 +4,7 @@ const createCategory = async (req, res) => {
   const newCategory = new Category({
     title: req.body.title,
     description: req.body.description,
+    image: req.body.image
   });
   try {
     const savedCategory = await newCategory.save();

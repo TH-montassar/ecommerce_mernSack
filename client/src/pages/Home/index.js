@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import car from "../../assert/image/v.jpg";
+
 import Return from "../../assert/image/re.svg";
 import ReturnRv from "../../assert/image/rev.svg";
 import { Link } from "react-router-dom";
@@ -8,11 +8,12 @@ import { getProducts } from "../../actions/product.action";
 import vdAbout from "../../assert/image/vd/cars.mp4";
 import ReactPlayer from "react-player";
 import favorite from "../../assert/image/fover.svg";
+import car from "../../assert/image/v.jpg";
 
 const Home = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getProducts());
+    dispatch(getProducts({ limit: 8 }));
   }, []);
 
   const { isLoading, products } = useSelector((state) => {
@@ -65,10 +66,10 @@ const Home = () => {
             {products.map((product) => (
               <div
                 key={product._id}
-                className="h-96 min-w-[20rem] relative shadow-2xl rounded-2xl border hover:border-black snap-center"
+                className="h-96 min-w-6 relative shadow-2xl rounded-2xl border hover:border-black snap-center"
               >
                 <img src={favorite} alt="like" className="absolute " />
-                <Link to="/details">
+                <Link to={`/details/${product.slug}`}>
                   <img
                     className="rounded-t-2xl h-1/2 ease-in-out w-full object-contain"
                     src={product.image}
@@ -97,8 +98,6 @@ const Home = () => {
         {/* //*------------------------------------------ */}
         <div className="mt-10">
           <h2 className="pb-12 text-3xl">Best selling Product</h2>
-         
-
 
           <div className="flex flex-1 gap-12 overflow-x-auto snap-x	snap-mandatory pt-4 pl-10 pb-10">
             {products.map((product) => (
@@ -107,7 +106,7 @@ const Home = () => {
                 className="h-96 min-w-[20rem] relative shadow-2xl rounded-2xl border hover:border-black snap-center"
               >
                 <img src={favorite} alt="like" className="absolute " />
-                <Link to="/details">
+                <Link to={`/details/${product.slug}`}>
                   <img
                     className="rounded-t-2xl h-1/2 ease-in-out w-full object-contain"
                     src={product.image}
@@ -132,12 +131,6 @@ const Home = () => {
               </div>
             ))}
           </div>
-
-
-
-
-
-
         </div>
         {/* ---------------------------------- */}
       </div>

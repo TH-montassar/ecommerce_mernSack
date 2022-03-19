@@ -56,6 +56,7 @@ const Login = () => {
                 id="email"
                 autoComplete="email"
                 required
+                value={Form.email}
                 placeholder="email@exemple.om"
               />
             </div>
@@ -72,6 +73,7 @@ const Login = () => {
                 type="password"
                 name="password"
                 id="password"
+                value={Form.password}
                 required
                 placeholder="**********"
               />

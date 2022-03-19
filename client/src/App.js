@@ -9,6 +9,8 @@ import Search from "./pages/search";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Details from "./pages/Details";
+import Cart from "./pages/Cart";
+import Categories from "./pages/categories";
 
 
 
@@ -24,6 +26,9 @@ const App = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/search" element={<Search />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/cart" element={<Cart/>} />
+                <Route path="/categories" element={<Categories/>} />
+
 
                 <Route path="/register" element={<Register />} />
                 <Route path="/details/:slug" element={<Details/>} />

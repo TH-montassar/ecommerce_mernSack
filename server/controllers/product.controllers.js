@@ -45,17 +45,21 @@ const getProduct = async (req, res) => {
   }
 };
 const getProducts = async (req, res) => {
+
+  const limit =req.query.limit ?parseInt(req.query.limit):999
  // console.log(req.verifiedUser)
   let filter = {};
   if (req.query.category) {
     filter.category = await Category.findOne({
-      title: req.query.category,
+      slug: req.query.category,
     }).select("_id");
   }
  //console.log("this is from filter",filter);
-
+ if (req.query.q) {
+  filter.slug = { $regex: ".*" + req.query.q + ".*", $options: "i" };
+}
   try {
-    const products = await Product.find(filter).populate("user").populate("category");
+    const products = await Product.find(filter).limit(limit).populate("user").populate("category");
     return res.status(200).json(products);
   } catch (err) {
     return res.status(500).json(err);

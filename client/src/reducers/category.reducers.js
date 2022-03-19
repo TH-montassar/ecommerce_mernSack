@@ -1,4 +1,9 @@
-import { ADD_CATEGORY, GET_CATEGORY } from "../constants/action";
+import {
+  ADD_CATEGORY,
+  CATEGORY_ERROR,
+  GET_CATEGORIES,
+  GET_CATEGORY,
+} from "../constants/action";
 
 const initialState = {
   categories: [],
@@ -9,13 +14,23 @@ const initialState = {
 const CategoryReducers = (state = initialState, action) => {
   const { payload, type } = action;
   switch (type) {
-    case GET_CATEGORY:
-      break;
-    case ADD_CATEGORY:
-      break;
+    case GET_CATEGORIES:
+      return {
+        ...state,
+        //*payload. 3ibara reponce mmta3 postman
+        categories: payload,
+      };
+    case CATEGORY_ERROR:
+      return {
+        ...state,
+        isLoading: false,
+        categories: [],
+        category: null,
+        error: payload,
+      };
 
     default:
-     return state;
+      return state;
   }
 };
 export default CategoryReducers;
