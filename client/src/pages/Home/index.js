@@ -16,7 +16,7 @@ const Home = () => {
     dispatch(getProducts({ limit: 8 }));
   }, []);
 
-  const { isLoading, products } = useSelector((state) => {
+  const { /*isLoading ,*/ products } = useSelector((state) => {
     return state.productReducers;
   });
 
