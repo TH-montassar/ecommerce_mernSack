@@ -17,7 +17,7 @@ const Categories = () => {
       <h1 className="text-center font-bold text-3xl  py-10">All Categories</h1>
       <div className=" grid grid-cols-4 gap-12 pt-4 pl-10">
         {categories.map((category) => (
-          <div className="h-72 max-w-[15rem] relative shadow-2xl rounded-2xl border hover:border-black ">
+          <div   key={category._id} className="h-72 max-w-[15rem] relative shadow-2xl rounded-2xl border hover:border-black ">
             <Link to={`/search?category=${category.slug}`}>
               <img
                 className="rounded-t-2xl h-1/2 ease-in-out w-full object-contain"

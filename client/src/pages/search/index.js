@@ -4,7 +4,6 @@ import { Link, useLocation } from "react-router-dom";
 import { getProducts } from "../../actions/product.action";
 
 import favorite from "../../assert/image/favorite.svg";
-import car from "../../assert/image/v.jpg";
 
 const Search = () => {
   const location = useLocation();
@@ -35,10 +34,10 @@ const Search = () => {
     );
   };
 
-  const { isloading, products } = useSelector((state) => {
+  const { /* isloading, */ products } = useSelector((state) => {
     return state.productReducers;
   });
-
+ 
   return (
     <section className="pb-6">
       <div className="text-gray-400">Home/Search/Category/product</div>
@@ -208,7 +207,7 @@ const Search = () => {
             {products.map((product) => (
               <div className="h-72 max-w-[15rem] relative shadow-2xl rounded-2xl border hover:border-black ">
                 <img src={favorite} alt="like" className="absolute " />
-                <Link to="/details">
+                <Link  to={`/details/${product.slug}`}>
                   <img
                     className="rounded-t-2xl h-1/2 ease-in-out w-full object-contain"
                     src={product.image}
@@ -217,7 +216,7 @@ const Search = () => {
                 </Link>
 
                 <div className="flex flex-col h-1/2 gap-2 w-full justify-center items-center px-4 pb-2">
-                  <h1 className="text-lg font-medium text-center truncate w-72">
+                  <h1 className="text-sm font-medium  truncate w-32  mx-auto">
                     {product.title}
                   </h1>
 

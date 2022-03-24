@@ -77,7 +77,7 @@ const Home = () => {
                   />
                 </Link>
                 <div className="flex flex-col h-1/2 gap-2 w-full justify-center items-center px-4 pb-2">
-                  <h1 className="text-lg font-medium  text-center truncate w-72 mx-auto ">
+                  <h1 className="text-sm font-medium  text-center truncate w-72 mx-auto ">
                     {product.title}
                   </h1>
 
